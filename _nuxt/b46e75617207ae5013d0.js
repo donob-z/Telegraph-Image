@@ -376,10 +376,13 @@
                                     .post("/upload", o)
                                     .then(function (t) {
                                         200 === t.status
-                                            ? ((e.status = "done"),
-                                              (e.imgUrl =
+                                            ? ((e.status = "done"),                                               
+                                              (e.imgUrl0 =
                                                   location.origin +
-                                                  t.data[0].src))
+                                                  t.data[0].src),
+                                              (e.imgUrl =
+                                                  (location.origin +
+                                                  t.data[0].src).replace("https://", "https://i3.wp.com/")))
                                             : e.showError();
                                     })
                                     .catch(function () {
